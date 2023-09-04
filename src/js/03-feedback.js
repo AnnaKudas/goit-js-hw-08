@@ -18,7 +18,6 @@ function populateFormOutput() {
   }
 }
 
-
 populateFormOutput();
 
 const formData = {};
@@ -32,18 +31,13 @@ function handlerFormOutput(evt) {
   refs.input.value = formData.email || "";
   refs.textarea.value = formData.message || "";
 
-  console.log(formData);
 }
 
 refs.form.addEventListener("submit", (evt) => {
   evt.preventDefault();
 
-  localStorage.removeItem(STORAGE_KEY);
   evt.target.reset();
-
 
   refs.input.value = "";
   refs.textarea.value = "";
-
-  console.log(formData);
 });

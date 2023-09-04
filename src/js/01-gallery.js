@@ -1,5 +1,5 @@
 import SimpleLightbox from 'simplelightbox';
-import 'simplelightbox/dist/simple-lightbox.min.css';
+
 
 import { galleryItems } from './gallery-items.js';
 
@@ -20,7 +20,7 @@ function createMarkup(arr) {
     .join('');
 }
 
-
+import 'simplelightbox/dist/simple-lightbox.min.css';
 const lightbox = new SimpleLightbox('.gallery a', {
   /* options, if needed */
 });
@@ -29,10 +29,3 @@ const imageList = document.querySelector('.gallery');
 imageList.insertAdjacentHTML('beforeend', createMarkup(galleryItems));
 
 
-lightbox.refresh();
-imageList.addEventListener('click', (e) => {
-  e.preventDefault();
-  if (e.target.tagName === 'IMG') {
-    lightbox.open();
-  }
-});
