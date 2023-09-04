@@ -30,10 +30,3 @@ imageList.insertAdjacentHTML('beforeend', createMarkup(galleryItems));
 
 
 
-lightbox.refresh();
-imageList.addEventListener('click', (e) => {
-  e.preventDefault();
-  if (e.target.tagName === 'IMG') {
-    lightbox.open();
-  }
-});
