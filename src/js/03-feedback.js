@@ -27,14 +27,16 @@ refs.form.addEventListener("input", throttle(handlerFormOutput, 500));
 function handlerFormOutput(evt) {
   formData[evt.target.name] = evt.target.value;
   localStorage.setItem(STORAGE_KEY, JSON.stringify(formData));
-
-  refs.input.value = formData.email || "";
-  refs.textarea.value = formData.message || "";
-
 }
 
 refs.form.addEventListener("submit", (evt) => {
   evt.preventDefault();
+
+  // Clear local storage when the form is submitted
+  localStorage.removeItem(STORAGE_KEY);
+
+  // Print the object with data to the console
+  console.log(formData);
 
   evt.target.reset();
 
