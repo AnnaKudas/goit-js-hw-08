@@ -18,7 +18,7 @@ try {
 
     // Populate the input and textarea fields with the stored values
     refs.input.value = formState.email;
-    refs.textarea.value = formState.text;
+    refs.textarea.value = formState.message;
   }
 } catch (error) {
   console.error('Error loading form state from localStorage:', error);
@@ -29,7 +29,7 @@ refs.form.addEventListener('input', throttle(handlerFormOutput, 500));
 function handlerFormOutput(evt) {
   const formState = {
     email: refs.input.value,
-    text: refs.textarea.value,
+    message: refs.textarea.value,
   };
   localStorage.setItem('feedback-form-state', JSON.stringify(formState));
 }
@@ -41,7 +41,10 @@ function clearFields() {
 
 refs.form.addEventListener('submit', evt => {
   evt.preventDefault();
-  console.log(localStorage.getItem(JSON.stringify('feedback-form-state')));
+  const state = JSON.parse(localStorage.getItem('feedback-form-state'));
+  console.log(JSON.stringify(state));
+  console.log('Email: ' + state.email);
+  console.log('Message: ' + state.message);
   localStorage.removeItem('feedback-form-state');
   clearFields();
 });
