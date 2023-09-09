@@ -42,9 +42,9 @@ function clearFields() {
 refs.form.addEventListener('submit', evt => {
   evt.preventDefault();
   const state = JSON.parse(localStorage.getItem('feedback-form-state'));
-  console.log(JSON.stringify(state));
-  console.log('Email: ' + state.email);
-  console.log('Message: ' + state.message);
+  console.log(state);
+  // console.log('Email: ' + state.email);
+  // console.log('Message: ' + state.message);
   localStorage.removeItem('feedback-form-state');
   clearFields();
 });
